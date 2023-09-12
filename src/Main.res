@@ -1,5 +1,10 @@
-Console.log("Hello, World!")
+open Bun
 
-let file = Bun.readFile("../package.json")
+let readFile = async () => {
+  let file = bun.file(. `${Env.importMetaDir}/../rinha/test.json`)
+  let data = await file.json(.)
 
-Console.log(await file.json())
+  Console.log(data)
+}
+
+await readFile()
